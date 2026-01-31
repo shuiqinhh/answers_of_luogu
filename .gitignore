@@ -1,0 +1,25 @@
+# --- 编译产生的垃圾文件 ---
+build/
+bin/
+lib/
+*.o
+*.so
+*.a
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# --- IDE 配置文件 (不要上传你的个人配置) ---
+.vscode/
+.idea/
+*.swp
+*.swo
+# --- 系统垃圾文件 ---
+.DS_Store
+Thumbs.db
+# --- 之前下载的安装包 ---
+*.snap
+*.AppImage
+*.tar.gz
+*.zip
