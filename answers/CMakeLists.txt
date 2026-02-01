@@ -9,4 +9,4 @@ set(CMAKE_BUILD_TYPE Release)
 
 
 add_executable(B2158 B2158.cpp)
-
+add_executable(B2550 B2550.cpp)
