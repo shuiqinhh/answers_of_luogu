@@ -17,6 +17,7 @@ add_executable(P6206 P6206.cpp)
 add_executable(P6565 P6565.cpp)
 add_executable(P1125 P1125.cpp)
 add_executable(P1059 P1059.cpp)
+add_executable(P1936 P1936.cpp)
 
 
 if(MSVC)
