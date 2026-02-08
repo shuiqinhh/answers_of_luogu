@@ -1,0 +1,37 @@
+//sorting algorithms
+#include <iostream>
+#include <vector>
+//冒泡排序
+int bubbleSort(int & a[], int times)
+{
+  for (int i = 0; i < n - 1; i++) {
+    bool swapped = false;
+    for (int j = 0; j < n - i - 1; j++) {
+      if (a[j] > a[j + 1]) {
+        int temp = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = temp;
+        swapped = true;
+        times++;
+      }
+    }
+    if (!swapped) {
+      break;
+    }
+  }
+  return times;
+}
+
+//主函数
+int main()
+{
+  int a[4] = {4, 3, 2, 1};
+  int times = 0;
+  int n = bubbleSort(a, times);
+  for (int i = 0; i < 4; i++) {
+    std::cout << a[i] << " ";
+  }
+  std::cout << std::endl;
+  std::cout << n << std::endl;
+  return 0;
+}
