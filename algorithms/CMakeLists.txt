@@ -10,3 +10,4 @@ set(CMAKE_BUILD_TYPE Release)
 
 add_executable(permution_Recursion permution_Recursion.cpp)
 add_executable(sorting_algorithms sorting_algorithms.cpp)
+add_executable(Josephus_question Josephus_question.cpp)
