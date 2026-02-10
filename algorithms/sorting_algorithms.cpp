@@ -1,4 +1,5 @@
 //sorting algorithms
+#include <algorithm>
 #include <iostream>
 #include <vector>
 //冒泡排序
@@ -20,6 +21,35 @@ int bubbleSort(int & a[], int times)
     }
   }
   return times;
+}
+
+//桶排序
+void binSort(float arr[], int n)
+{
+  if (n <= 1) return;
+  float maxele = arr[0];
+  float minele = arr[0];
+  for (int i = 1; i < n; i++) {
+    if (arr[i] > maxele) maxele = arr[i];
+    if (arr[i] < minele) minele = arr[i];
+  }
+  if (maxele == minele) return;
+  std::vector<std::vector<float>> bins(n);
+  double range = (maxele - minele) / n;
+  for (int i = 0; i < n; i++) {
+    int index = (arr[i] - minele) / range;
+    if (index == n) index--;
+    bins[index].push_back(arr[i]);
+  }
+  int index = 0;
+  for (int i = 0; i < n; i++) {
+    if (!bins[i].empty()) {
+      std::sort(bins[i].begin(), bins[i].end());
+      for (int j = 0; j < (int)bins[i].size(); j++) {
+        arr[index++] = bins[i][j];
+      }
+    }
+  }
 }
 
 //主函数
