@@ -20,6 +20,8 @@ add_executable(P1059 P1059.cpp)
 add_executable(P1936 P1936.cpp)
 add_executable(P1116 P1116.cpp)
 add_executable(P1996 P1996.cpp)
+add_executable(B2105 B2105.cpp)
+add_executable(B4358 B4358.cpp)
 
 
 if(MSVC)
