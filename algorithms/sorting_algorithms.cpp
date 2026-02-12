@@ -23,7 +23,7 @@ int bubbleSort(int & a[], int times)
   return times;
 }
 
-//桶排序
+//箱子排序
 void binSort(float arr[], int n)
 {
   if (n <= 1) return;
@@ -52,6 +52,42 @@ void binSort(float arr[], int n)
   }
 }
 
+//基数排序
+void radixSort(std::vector<int> & arr)
+{
+  int max = *std::max_element(arr.begin(), arr.end());
+  int n = 0;
+  while (max >= 1) {
+    max /= 10;
+    n++;
+  }
+  int * count = new int[10];             // 计数器，也就是0~9共10个桶
+  int * tem = new int[(int)arr.size()];  // 临时数组，和计数排序的临时数组作用一样
+  int radix = 1;
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j < 10; j++) {
+      count[j] = 0;
+    }
+    for (int j = 0; j < (int)arr.size(); j++) {
+      // 计数，方便后续获得每个数的index
+      count[(arr[j] / radix) % 10]++;
+    }
+    for (int j = 1; j < 10; j++) {
+      count[j] += count[j - 1];
+    }
+    for (int j = (int)arr.size() - 1; j >= 0; j--) {
+      // 将桶里的元素取出来
+      int index = count[(arr[j] / radix) % 10] - 1;
+      tem[index] = arr[j];
+      count[(arr[j] / radix) % 10]--;
+    }
+    for (int j = 0; j < (int)arr.size(); j++) {
+      arr[j] = tem[j];
+    }
+    radix *= 10;
+  }
+}
+
 //主函数
 int main()
 {
@@ -63,5 +99,10 @@ int main()
   }
   std::cout << std::endl;
   std::cout << n << std::endl;
+  std::vector<int> arr = {170, 45, 75, 90, 802, 24, 2, 66};
+  radixSort(arr);
+  for (int i = 0; i < arr.size(); i++) {
+    std::cout << arr[i] << " ";
+  }
   return 0;
 }
